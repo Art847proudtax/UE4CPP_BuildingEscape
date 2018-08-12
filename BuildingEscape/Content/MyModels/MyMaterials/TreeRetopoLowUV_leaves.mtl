@@ -1,0 +1,27 @@
+newmtl initialShadingGroup
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Tree01Normals_normals.tif
+bump Tree01Normals_normals.tif -bm 1
+Ni 1.00
+newmtl keyakiPark1LeafShaderSG1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd ramp2-keyakiPark1Leaf.jpg
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks multiplyDivide1-keyakiPark1Leaf.jpg
+Ns 8.00
+newmtl lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Tree01_Color_albedo.tif
+map_Ka Tree01_Color_albedo.tif
+bump Tree01Normals_normals_fixed.tif -bm 1
+Ni 1.00

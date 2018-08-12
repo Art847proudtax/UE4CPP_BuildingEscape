@@ -6,9 +6,9 @@ public class BuildingEscape : ModuleRules
 {
 	public BuildingEscape(ReadOnlyTargetRules Target) : base(Target)
 	{
-		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
+		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs; //This line must to be here on UnrealEngine4.17 or greater UE
+
+        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 

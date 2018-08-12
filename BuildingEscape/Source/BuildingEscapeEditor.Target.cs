@@ -9,6 +9,9 @@ public class BuildingEscapeEditorTarget : TargetRules
 	{
 		Type = TargetType.Editor;
 
-		ExtraModuleNames.AddRange( new string[] { "BuildingEscape" } );
-	}
+		ExtraModuleNames.AddRange( new string[] { "BuildingEscape" } ); //This line must to be here on UnrealEngine4.17 or greater UE
+
+        bUseUnityBuild = false;
+        bUsePCHFiles = false;
+    }
 }
