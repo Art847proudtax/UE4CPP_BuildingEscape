@@ -2,6 +2,8 @@
 
 #include "OpenDoor.h"
 #include "Classes/GameFramework/Actor.h" //This line must to be here on UnrealEngine4.17 or greater UE
+#include "Engine/World.h" //Necessary to use GetWorld()
+#include "GameframeWork/PlayerController.h"  //Necessary to get the player
 
 
 // Sets default values for this component's properties
@@ -19,6 +21,11 @@ UOpenDoor::UOpenDoor()
 void UOpenDoor::BeginPlay()
 {
 	Super::BeginPlay();
+	ActorThatOpensDoor = GetWorld()->GetFirstPlayerController()->GetPawn();
+}
+
+void UOpenDoor::OpenDoor()
+{
 	//Finding the owning actor
 	AActor* owner = GetOwner();
 
@@ -26,11 +33,11 @@ void UOpenDoor::BeginPlay()
 	float owneryaw = GetOwner()->GetActorRotation().Yaw;
 
 	//Creating a rotator variable that decreases the default rotation of 70 degrees
-	FRotator NewRotation = FRotator(0.f, owneryaw - 70.f, 0.0f);
+	//FRotator NewRotation = FRotator(0.f, owneryaw - 70.f, 0.0f);
+	FRotator NewRotation = FRotator(0.f, - 170.f, 0.0f);
 
 	//Set the rotation for object (door)
 	owner->SetActorRotation(NewRotation);
-	
 }
 
 
@@ -39,6 +46,10 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+	// Polling the trigger volume
+	if (PressurePlate->IsOverlappingActor(ActorThatOpensDoor))
+	{
+		OpenDoor();
+	}
 }
 

@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Engine/TriggerVolume.h"
+#include "Engine/StaticMeshActor.h"
 #include "OpenDoor.generated.h" //The .generated.h must be the last include
 
 
@@ -21,6 +22,8 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
+	void OpenDoor();
+
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
@@ -32,4 +35,7 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate; //ATriggerVolume* type requires to include "Engine/TriggerVolume.h" in the 4.20 version of Unreal
+
+	//UPROPERTY(EditAnywhere)
+	AActor* ActorThatOpensDoor;
 };
